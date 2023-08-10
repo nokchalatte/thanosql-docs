@@ -78,7 +78,6 @@ Another thing to remember is that the generated site has a slightly different fi
 However, the file structure of the generated site looks like this:
 
 ```bash
-
 .
 └── site/
     └── en/
@@ -93,7 +92,6 @@ However, the file structure of the generated site looks like this:
                     │   └── query_manager.md
                     ├── index.html
                     └── index.md
-
 ```
 
 Notice the additional `query_manager/` folder between `workspace/` and `query_manager.md`, but the same path for `index.md` and the generated `index.html`. Because of this, for files other than those named `index.html`, their relative paths are going to be one directory higher than those of the original. This directory change does not apply to images, however. Thus, the relative paths of images and `index.html` files are going to be the same as those of the original.
@@ -122,6 +120,7 @@ In order to set an alias (such as "latest", "stable", or "beta"), we use the com
 
 ```bash
 mike alias [identifier] [alias]
+# for example: mike alias 2.0 stable
 ```
 
 We pass the flag `-u` or `--update-aliases` to `deploy` in order to update aliases while making a new deployment. For instance, in order to deploy changes for version 1.5, reflect them in the remote `gh-pages`, and make it the latest version, we use the command
@@ -134,12 +133,14 @@ In order to set the default version, where users are directed to from the root p
 
 ```bash
 mike set-default [identifier]
+# for example: mike set-default latest
 ```
 
 To delete a version, run
 
 ```bash
 mike delete [identifier]
+# for example: mike delete 1.2
 ```
 
 The version folder will be deleted from the repository.
